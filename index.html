@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Running in Circles | Workshop สำหรับนักธุรกิจ</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a', // Midnight Blue
+                            primary: '#1e293b', // Slate 800
+                            accent: '#d4af37', // Gold
+                            light: '#f8fafc', // Slate 50
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif Thai"', 'serif'],
+                        sans: ['"Prompt"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Noto Serif Thai', serif;
+        }
+        .bg-grain {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #b49228 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border {
+            border: 1px solid #d4af37;
+        }
+
+        /* Shake animation for emphasis */
+        @keyframes shake {
+            0%, 5% { transform: translateX(0); } /* Start and end of the shake movement */
+            1%, 3%, 5% { transform: translateX(-3px); } /* Shake left */
+            2%, 4% { transform: translateX(3px); } /* Shake right */
+            6%, 100% { transform: translateX(0); } /* Remain still for the rest of the cycle */
+        }
+
+        .animate-shake {
+            animation: shake 3s ease-in-out infinite; /* 3-second cycle */
+        }
+    </style>
+</head>
+<body class="bg-brand-light text-brand-primary antialiased selection:bg-brand-accent selection:text-white">
+
+    <!-- Hero Section -->
+    <header class="relative bg-brand-dark text-white min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-grain opacity-20"></div>
+        <!-- Decorative Circle -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-brand-accent/20 rounded-full animate-pulse"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] border border-brand-accent/10 rounded-full"></div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center py-20">
+            <p class="font-serif italic text-brand-accent text-lg mb-2">Spiritual and business</p>
+            <p class="text-brand-accent tracking-[0.2em] uppercase text-sm mb-4 font-semibold">Workshop สำหรับนักธุรกิจที่ต้องการมากกว่ากำไร</p>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Stop Running <br/>
+                <span class="italic font-serif text-brand-accent">In Circles</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 font-light mb-8 max-w-2xl mx-auto">
+                ออกจากวงจรธุรกิจที่เหนื่อยแต่ไม่โต <br>
+                เลิกวิ่งไล่หาลูกค้าด้วยวิธีเดิมๆ และค้นพบ "คุณค่าที่แท้จริง" ของคุณ
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center mt-10">
+                <a href="#register" class="bg-brand-accent text-brand-dark font-bold py-4 px-8 rounded-full hover:bg-white transition duration-300 shadow-[0_0_20px_rgba(212,175,55,0.4)]">
+                    ดูรายละเอียด Workshop
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Agitation: The Problem -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-center mb-12 text-brand-dark">ถามคุณตรงๆ... คุณเคยรู้สึกแบบนี้ไหม?</h2>
+            
+            <div class="space-y-6">
+                <div class="flex items-start gap-4 p-6 bg-gray-50 rounded-lg border-l-4 border-gray-300 hover:border-brand-accent transition-colors">
+                    <i data-lucide="circle-dashed" class="w-8 h-8 text-gray-400 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">คุณไม่ได้ขี้เกียจ ไม่ได้ไม่เก่ง ไม่ได้ไม่พยายาม</h3>
+                        <p class="text-gray-600">แต่ไม่ว่าจะลองกี่วิธี ธุรกิจและชีวิตของคุณก็เหมือน <strong>"ยืนอยู่ที่เดิม"</strong></p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start gap-4 p-6 bg-gray-50 rounded-lg border-l-4 border-gray-300 hover:border-brand-accent transition-colors">
+                    <i data-lucide="trending-up" class="w-8 h-8 text-gray-400 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">ทำงานมากขึ้น เรียนมากขึ้น ปรับตัวมากขึ้น</h3>
+                        <p class="text-gray-600">แต่รายได้... ความอิสระ... ความเบาในชีวิต... <strong>ไม่เคยเพิ่มขึ้นตามแรงที่คุณใส่ลงไปเลย</strong></p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-6 bg-gray-50 rounded-lg border-l-4 border-gray-300 hover:border-brand-accent transition-colors">
+                    <i data-lucide="help-circle" class="w-8 h-8 text-gray-400 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">ลึกๆ คุณเริ่มสงสัยว่า...</h3>
+                        <p class="text-gray-600">"หรือปัญหามันไม่ใช่ว่าฉันยังไม่พยายามพอ แต่เป็นเพราะฉันกำลัง <strong>พยายามผิดทาง</strong> มาตลอด?"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <p class="text-lg text-gray-600">
+                    ปัญหานี้ ไม่ได้เกิดกับคุณคนเดียว เจ้าของธุรกิจขนาดเล็ก, ผู้เชี่ยวชาญ, โค้ช, ที่ปรึกษา <br>
+                    คนมีประสบการณ์ชีวิตสูง จำนวนมาก ติดอยู่ใน <strong>"วงจรเดียวกัน"</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Truth Shift -->
+    <section class="py-24 bg-brand-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-grain opacity-10"></div>
+        <div class="container mx-auto px-6 max-w-4xl relative z-10 text-center">
+            <div class="inline-block p-2 px-4 border border-brand-accent rounded-full text-brand-accent mb-6 text-sm">ความจริงที่คนไม่ค่อยพูด</div>
+            <h2 class="text-3xl md:text-5xl font-serif font-bold mb-8 leading-tight">
+                ธุรกิจของคุณไม่โต <br>
+                ไม่ใช่เพราะคุณ "ไม่เก่ง"
+            </h2>
+            <div class="w-24 h-1 bg-brand-accent mx-auto mb-8"></div>
+            <p class="text-xl font-light leading-relaxed text-gray-300">
+                แต่เพราะคุณยัง <span class="text-white font-semibold underline decoration-brand-accent decoration-2 underline-offset-4">อธิบายคุณค่าของตัวเองไม่ชัด</span><br><br>
+                เมื่อคุณอธิบายไม่ชัด ตลาดก็จะไม่เข้าใจ ลูกค้าก็จะไม่เห็นความต่าง<br>
+                และสุดท้ายคุณจะต้อง <strong>"วิ่งหา"</strong> ตลอดไป
+            </p>
+        </div>
+    </section>
+
+    <!-- The Solution: Workshop -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-4">Workshop นี้ถูกสร้างขึ้นเพื่อ "หยุดวงจรนี้"</h2>
+                <p class="text-gray-600">ไม่ใช่คอร์สสร้างแรงบันดาลใจ ไม่ใช่คอร์ส Healing ไม่ใช่คอร์ส Mindset</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto items-center">
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <h3 class="text-2xl font-bold mb-6 font-serif text-brand-dark">สิ่งที่คุณจะ "เลิกทำ"</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-gray-600"><i data-lucide="x-circle" class="text-red-500 w-5 h-5"></i> เลิกเล่าเรื่องชีวิตแบบสะเปะสะปะ</li>
+                        <li class="flex items-center gap-3 text-gray-600"><i data-lucide="x-circle" class="text-red-500 w-5 h-5"></i> เลิกหวังว่าลูกค้าจะ "เข้าใจเอง"</li>
+                        <li class="flex items-center gap-3 text-gray-600"><i data-lucide="x-circle" class="text-red-500 w-5 h-5"></i> เลิกทำทุกอย่างเพื่อเอาใจตลาด</li>
+                        <li class="flex items-center gap-3 text-gray-600"><i data-lucide="x-circle" class="text-red-500 w-5 h-5"></i> เลิกวิ่งหาลูกค้าแบบเดิม</li>
+                    </ul>
+                </div>
+
+                <div class="bg-brand-dark text-white p-8 rounded-2xl shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-accent opacity-10 rounded-bl-full"></div>
+                    <h3 class="text-2xl font-bold mb-6 font-serif text-brand-accent">สิ่งที่คุณจะ "ได้รับ" หลังจาก Workshop นี้</h3>
+                    <p class="mb-6 text-gray-300">คุณจะไม่ต้องวิ่งหาความสำเร็จจากข้างนอกอีกต่อไป เพราะคุณจะรู้แล้วว่า ประสบการณ์ไหนของคุณ คือรากฐานที่จะใช้พัฒนาธุรกิจให้เติบโตได้จริง</p>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check" class="text-brand-accent w-5 h-5 mt-1"></i>
+                            <span class="text-gray-200">คุณจะพูดเรื่องธุรกิจตัวเองได้ชัดใน 3 ประโยค</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check" class="text-brand-accent w-5 h-5 mt-1"></i>
+                            <span class="text-gray-200">คุณจะรู้ว่าควรหยุดขายอะไร และโฟกัสอะไร</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check" class="text-brand-accent w-5 h-5 mt-1"></i>
+                            <span class="text-gray-200">คุณจะไม่ลังเลเวลาเล่าเรื่องตัวเองกับลูกค้าอีก</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check" class="text-brand-accent w-5 h-5 mt-1"></i>
+                            <span class="text-gray-200">คุณจะมี “แกนธุรกิจ” ที่ใช้ต่อยอดได้จริง</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5D Framework -->
+    <section class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-serif font-bold text-center text-brand-dark mb-16">
+                Framework ที่ใช้: <span class="text-brand-accent">5D Framework</span>
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- D1 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border-t-4 border-brand-accent">
+                    <div class="text-5xl font-serif font-bold text-gray-100 mb-4 absolute -mt-12 right-8">01</div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">D1 — Discover (ค้นพบ)</h3>
+                    <p class="text-gray-600 text-sm">ค้นพบว่าในประสบการณ์ชีวิตทั้งหมดของคุณ มีเพียงบางเหตุการณ์ที่มีพลังพอจะกลายเป็นคุณค่าเชิงธุรกิจ</p>
+                </div>
+                <!-- D2 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border-t-4 border-brand-dark">
+                    <div class="text-5xl font-serif font-bold text-gray-100 mb-4 absolute -mt-12 right-8">02</div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">D2 — Detach (แยกออก)</h3>
+                    <p class="text-gray-600 text-sm">แยกตัวคุณออกจากบาดแผล เล่าเรื่องจากความเข้าใจ ไม่ใช่ความเจ็บ เพื่อให้ธุรกิจเดินหน้าอย่างมืออาชีพ</p>
+                </div>
+                <!-- D3 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border-t-4 border-brand-accent">
+                    <div class="text-5xl font-serif font-bold text-gray-100 mb-4 absolute -mt-12 right-8">03</div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">D3 — Dissolve (คลี่คลาย)</h3>
+                    <p class="text-gray-600 text-sm">คลี่คลายความเชื่อที่ฉุดรั้งคุณ เช่น "ฉันยังไม่พร้อม" "ฉันยังไม่เก่งพอ" หรือ "ใครจะมาซื้อเรื่องของฉัน"</p>
+                </div>
+                <!-- D4 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border-t-4 border-brand-dark md:col-start-1 md:col-end-2 lg:col-start-auto lg:col-end-auto">
+                    <div class="text-5xl font-serif font-bold text-gray-100 mb-4 absolute -mt-12 right-8">04</div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">D4 — Design (ออกแบบ)</h3>
+                    <p class="text-gray-600 text-sm">ออกแบบตัวตน Expert, กลุ่มลูกค้า และ Offer แรกที่ไม่ต้องฝืนขาย แต่ขายได้ด้วยตัวมันเอง</p>
+                </div>
+                <!-- D5 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border-t-4 border-brand-accent md:col-start-2 md:col-end-4 lg:col-start-auto lg:col-end-auto">
+                    <div class="text-5xl font-serif font-bold text-gray-100 mb-4 absolute -mt-12 right-8">05</div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">D5 — Demonstrate (แสดงออก)</h3>
+                    <p class="text-gray-600 text-sm">สื่อสารเรื่องราวของคุณอย่างมั่นคง ในแบบที่ไม่ต้องขาย ไม่ต้องพูดเก่ง แต่คนฟัง "เข้าใจและเชื่อ"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who is this for -->
+    <section class="py-20 bg-brand-primary text-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-serif font-bold mb-6 text-brand-accent">Workshop นี้ "เหมาะ" กับใคร</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="text-green-400 w-6 h-6 flex-shrink-0"></i>
+                            <span>เจ้าของธุรกิจหรือผู้เชี่ยวชาญ</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="text-green-400 w-6 h-6 flex-shrink-0"></i>
+                            <span>คนที่มีประสบการณ์ชีวิตจริง (ซึ่งคุณก็มีนะ)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="text-green-400 w-6 h-6 flex-shrink-0"></i>
+                            <span>คนที่เหนื่อยกับการทำธุรกิจแบบเดิม และพร้อมเปลี่ยน</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="opacity-80">
+                    <h3 class="text-2xl font-serif font-bold mb-6 text-gray-400">Workshop นี้ "ไม่เหมาะ" กับคุณ ถ้า...</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="x" class="text-red-400 w-6 h-6 flex-shrink-0"></i>
+                            <span>คุณแค่อยากได้แรงบันดาลใจชั่วคราว</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="x" class="text-red-400 w-6 h-6 flex-shrink-0"></i>
+                            <span>คุณยังไม่อยากรับผิดชอบชีวิตตัวเอง</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="x" class="text-red-400 w-6 h-6 flex-shrink-0"></i>
+                            <span>คุณคิดว่าปัญหาทั้งหมดคือ "ตลาดไม่ดี"</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="py-24 bg-brand-light/50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-center text-brand-dark mb-4">เสียงตอบรับจากผู้เข้าร่วม</h2>
+            <p class="text-center text-gray-500 mb-16 max-w-2xl mx-auto">ความประทับใจจาก workshop ของเรา</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 sm:gap-x-8">
+                <!-- Review 1 -->
+                <div class="group relative">
+                    <div class="p-2 bg-white rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105 hover:-rotate-1 -rotate-2">
+                        <img src="img/rw1.jpg" alt="Review 1" class="w-full h-auto object-cover rounded-md">
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="group relative">
+                    <div class="p-2 bg-white rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105 hover:rotate-1 rotate-2 sm:mt-8">
+                        <img src="img/rw2.jpg" alt="Review 2" class="w-full h-auto object-cover rounded-md">
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="group relative">
+                    <div class="p-2 bg-white rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105 hover:-rotate-1 -rotate-3">
+                        <img src="img/rw3.jpg" alt="Review 3" class="w-full h-auto object-cover rounded-md">
+                    </div>
+                </div>
+                <!-- Review 4 -->
+                <div class="group relative">
+                    <div class="p-2 bg-white rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105 hover:rotate-1 rotate-1 sm:mt-8">
+                        <img src="img/rw4.jpg" alt="Review 4" class="w-full h-auto object-cover rounded-md">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor -->
+    <section class="py-24 bg-white border-b border-gray-100">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <h2 class="text-3xl font-serif font-bold mb-16 text-brand-dark text-center">วิทยากร & แขกรับเชิญพิเศษ</h2>
+            
+            <!-- Main Instructor: Lookwai -->
+            <div class="flex flex-col md:flex-row items-center justify-center gap-10 mb-20 bg-gradient-to-br from-brand-light to-white p-8 md:p-12 rounded-3xl shadow-sm border border-brand-accent/20">
+                <div class="w-64 h-64 flex-shrink-0 relative">
+                    <div class="absolute inset-0 bg-brand-accent/20 rounded-full blur-xl transform translate-y-4"></div>
+                    <div class="w-full h-full bg-gray-200 rounded-full border-4 border-brand-accent overflow-hidden shadow-xl relative z-10">
+                        <img src="img/lookwai.jpg" alt="ครูลูกหวาย" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                
+                <div class="max-w-xl text-center md:text-left">
+                    <h3 class="text-3xl font-bold mb-2 text-brand-dark">ครูลูกหวาย</h3>
+                    <p class="text-brand-accent font-serif text-xl italic mb-1">Spiritual Business Creator</p>
+                    <p class="text-gray-500 font-medium mb-6">ผู้เปลี่ยนประสบการณ์ชีวิต → ตัวตนผู้สร้าง → ธุรกิจที่มี Impact และ Income</p>
+                    
+                    <p class="text-gray-700 leading-relaxed text-lg">
+                        เจ้าของธุรกิจที่ผ่านการลองผิดลองถูกจริง ทั้งในโลกธุรกิจและโลกภายใน สร้างยอดขาย 1 ล้านบาท+ จากไลฟ์สด 1 ชั่วโมง และนำประสบการณ์ชีวิตมาจัดวางเป็นธุรกิจ ที่เติบโตได้โดยไม่แลกชีวิตทั้งชีวิต
+                    </p>
+                </div>
+            </div>
+
+            <!-- Separator -->
+            <div class="flex items-center justify-center mb-16">
+                <div class="h-px bg-gray-200 w-24"></div>
+                <span class="px-4 text-gray-400 font-serif italic text-lg">Bonus: Special Guests</span>
+                <div class="h-px bg-gray-200 w-24"></div>
+            </div>
+
+            <!-- Guest Speakers -->
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Chote -->
+                <div class="flex flex-col items-center text-center p-6 bg-gray-50 rounded-2xl hover:shadow-lg transition-shadow">
+                    <div class="w-40 h-40 bg-gray-200 rounded-full mb-6 border-4 border-brand-primary/50 flex items-center justify-center overflow-hidden shadow-md">
+                        <img src="img/chote.jpg" alt="อ.โชติ" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold mb-1 text-brand-dark">อ.โชติ — โชติวุฒิ อินนาดดา</h3>
+                    <p class="text-brand-primary/70 font-serif italic mb-4 text-sm">Consultant / Coach / Facilitator</p>
+                    <p class="text-gray-600 text-sm leading-relaxed max-w-sm">
+                        ผู้เชื่อมโลกภายในของมนุษย์ เข้ากับระบบการทำงานและธุรกิจอย่างเป็นรูปธรรม ช่วยให้เห็นรูปแบบการคิด และการตัดสินใจที่ถูกใช้ซ้ำในธุรกิจ
+                    </p>
+                </div>
+
+                <!-- Max -->
+                <div class="flex flex-col items-center text-center p-6 bg-gray-50 rounded-2xl hover:shadow-lg transition-shadow">
+                    <div class="w-40 h-40 bg-gray-200 rounded-full mb-6 border-4 border-brand-primary/50 flex items-center justify-center overflow-hidden shadow-md">
+                        <img src="img/max.jpg" alt="อ.แมค" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold mb-1 text-brand-dark">อ.แมค — มีสิทธิ์ สาครจันทร์</h3>
+                    <p class="text-brand-primary/70 font-serif italic mb-4 text-sm">Organizational Evolution Consultant</p>
+                    <p class="text-gray-600 text-sm leading-relaxed max-w-sm">
+                        ทำงานกับกลไกภายใน ที่ทำให้คนและองค์กร วนซ้ำพฤติกรรมเดิมโดยไม่รู้ตัว ช่วยคลี่คลายความกลัว การบั่นทอนตัวเอง และหยุดวงจรเดิมจากต้นตอภายใน
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Logistics Details (NEW) -->
+    <section class="py-16 bg-brand-light">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="text-3xl font-serif font-bold text-center mb-10 text-brand-dark">วัน เวลา และสถานที่</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Date -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <div class="bg-brand-accent/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="calendar" class="w-8 h-8 text-brand-accent"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">วันเรียน</h3>
+                    <p class="text-gray-600">เสาร์ - อาทิตย์ที่</p>
+                    <p class="text-xl font-bold text-brand-dark">21 - 22 กุมภาพันธ์ 2569</p>
+                </div>
+                
+                <!-- Time -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <div class="bg-brand-accent/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="clock" class="w-8 h-8 text-brand-accent"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">เวลา</h3>
+                    <p class="text-gray-600">เนื้อหาเข้มข้น</p>
+                    <p class="text-xl font-bold text-brand-dark">9:00 - 17:00 น.</p>
+                </div>
+                
+                <!-- Location -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <div class="bg-brand-accent/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="map-pin" class="w-8 h-8 text-brand-accent"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">สถานที่</h3>
+                    <p class="text-brand-dark font-bold">กรุงเทพฯ หรือ นนทบุรี</p>
+                    <p class="text-sm text-gray-500 mb-3">จะแจ้งให้ทราบอีกครั้ง</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing (NEW) -->
+    <section class="py-20 bg-brand-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-grain opacity-10"></div>
+        <div class="container mx-auto px-6 text-center max-w-3xl relative z-10">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">การลงทุนเพื่ออนาคตธุรกิจของคุณ</h2>
+            <p class="text-gray-400 mb-12">ราคาบัตรเข้าร่วม Workshop 2 วันเต็ม</p>
+
+            <div class="bg-brand-dark border border-brand-accent/30 rounded-2xl p-8 md:p-12 shadow-[0_0_40px_rgba(0,0,0,0.3)] relative">
+                
+                <!-- Special Badge -->
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-accent text-brand-dark font-bold px-6 py-1 rounded-full text-sm shadow-lg">
+                    SPECIAL OFFER
+                </div>
+
+                <div class="flex flex-col items-center justify-center">
+                    <p class="text-gray-400 text-lg mb-2 line-through decoration-red-500/70 decoration-2">ราคาปกติ 9,900 บาท</p>
+                    <div class="flex items-baseline gap-2 mb-2">
+                        <span class="text-5xl md:text-7xl font-bold text-brand-accent font-serif">3,990</span>
+                        <span class="text-xl text-gray-300">บาท</span>
+                    </div>
+                    <p class="text-brand-accent/80 font-medium mb-8 bg-brand-accent/10 px-4 py-2 rounded-lg border border-brand-accent/20 animate-shake">
+                        ราคานี้ไม่ได้จัดบ่อย สำหรับรอบแรก และรับจำนวนจำกัด
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-4 w-full text-left text-sm text-gray-300 border-t border-gray-700 pt-6">
+                        <div class="flex items-center gap-2"><i data-lucide="check" class="text-green-400 w-4 h-4"></i> เรียนสด เจอตัว 2 วันเต็ม</div>
+                        <div class="flex items-center gap-2"><i data-lucide="check" class="text-green-400 w-4 h-4"></i> เอกสารประกอบการเรียน</div>
+                        <div class="flex items-center gap-2"><i data-lucide="check" class="text-green-400 w-4 h-4"></i> อาหารกลางวันและเบรค</div>
+                        <div class="flex items-center gap-2"><i data-lucide="check" class="text-green-400 w-4 h-4"></i> กลุ่ม Line ติดตามผล</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ & Closing -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-2xl">
+            <h2 class="text-3xl font-serif font-bold text-center mb-12">คำถามที่พบบ่อย</h2>
+            
+            <div class="space-y-4">
+                <details class="group bg-white rounded-lg shadow-sm">
+                    <summary class="flex justify-between items-center cursor-pointer p-6 list-none font-medium">
+                        Q: ต้องมีธุรกิจอยู่แล้วไหม?
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 px-6 pb-6 pt-0">
+                        A: ไม่จำเป็น แต่ต้องจริงจังกับการสร้างมัน
+                    </div>
+                </details>
+                <details class="group bg-white rounded-lg shadow-sm">
+                    <summary class="flex justify-between items-center cursor-pointer p-6 list-none font-medium">
+                        Q: ต้องพร้อมขายทันทีไหม?
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 px-6 pb-6 pt-0">
+                        A: ไม่ต้อง แต่คุณจะรู้แล้วว่า “ควรขายอะไร”
+                    </div>
+                </details>
+                <details class="group bg-white rounded-lg shadow-sm">
+                    <summary class="flex justify-between items-center cursor-pointer p-6 list-none font-medium">
+                        Q: ถ้ายังไม่มั่นใจล่ะ?
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 px-6 pb-6 pt-0">
+                        A: ความไม่มั่นใจคือสัญญาณว่า คุณกำลังอยู่ในวงจรนี้จริงๆ และควรมาหาคำตอบใน Workshop นี้
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="register" class="py-24 bg-brand-dark text-white text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-grain opacity-20"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 max-w-3xl">
+            <h2 class="text-3xl md:text-5xl font-serif font-bold mb-8">ก่อนคุณตัดสินใจ...</h2>
+            <p class="text-xl text-gray-300 mb-8">
+                ถ้าอีก 1 ปีข้างหน้า คุณยังทำธุรกิจด้วยวิธีเดิมๆ นี้อยู่ <br>
+                <span class="text-white font-bold">คุณจะโอเคกับชีวิตนั้นไหม?</span>
+            </p>
+            
+            <p class="text-2xl font-serif text-brand-accent italic mb-12">
+                ถ้าคำตอบคือ "ไม่" นี่คือก้าวถัดไปของคุณ
+            </p>
+
+            <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-10">
+                <h3 class="text-2xl font-bold mb-2">Workshop 2 วัน</h3>
+                <p class="text-xl mb-4 font-serif">Stop Running in Circles</p>
+                <p class="text-gray-300 text-sm mb-6">ออกจากวงจรธุรกิจที่เหนื่อยแต่ไม่โต</p>
+                
+                <a href="https://line.me/R/ti/p/@minimstudio" target="_blank" class="inline-flex items-center gap-2 bg-brand-accent text-brand-dark font-bold text-xl py-4 px-12 rounded-full hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(212,175,55,0.6)]">
+                    <span>สมัครเข้าร่วม Workshop</span>
+                    <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                </a>
+            </div>
+
+            <p class="text-sm text-gray-400">
+                กดที่ปุ่มด้านบน หรือ แอดไลน์ <span class="text-brand-accent">@minimstudio</span> <br>
+                และพิมพ์ <strong>"SRC"</strong> เพื่อสอบถามรายละเอียดและจองที่นั่ง
+            </p>
+        </div>
+    </section>
+
+    <footer class="bg-black text-gray-600 py-8 text-center text-sm">
+        <div class="container mx-auto px-6">
+            <p>&copy; 2024 Minim Studio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        // Ensure lucide is loaded before calling createIcons
+        window.addEventListener('load', function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                console.error("Lucide library failed to load or is not defined.");
+            }
+        });
+    </script>
+</body>
+</html>
